@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'module_E2_HW.wsgi.application'
 #     }
 # }
 
-for deploy to Heroku
+# for deploy to Heroku
 import dj_database_url  
 DATABASES = {
     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
