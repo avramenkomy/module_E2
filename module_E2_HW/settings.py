@@ -142,6 +142,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 2525
-EMAIL_HOST_USER = "test_for_skillfactory@mail.ru"
-EMAIL_HOST_PASSWORD = "ccj-Bip-cav-23e"
+EMAIL_HOST_USER = '89856492782@mail.ru' # "test_for_skillfactory@mail.ru"
+EMAIL_HOST_PASSWORD = 'Mixail756176!' # "ccj-Bip-cav-23e"
 EMAIL_USE_TLS = True
