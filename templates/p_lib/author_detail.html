@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}{{ object.last_name }}{% endblock %}
+
+{% block content %}
+    <div class="author-detail">
+        <div>
+            <span>Фамилия:</span>
+            <span>{{ object.last_name }}</span>
+        </div>
+        <div>
+            <span>Имя:</span>
+            <span>{{ object.first_name }}</span>
+        </div>
+        {% if object.additional_name %}
+            <div>
+                <span>Отчество:</span>
+                <span>{{ object.additional_name }}</span>
+            </div>
+        {% endif %}
+        <div>
+            <span>Год рождения:</span>
+            <span>{{ object.birth_year }}</span>
+        </div>
+        <div>
+            <span>Страна:</span>
+            <span>{{ object.country }}</span>
+        </div>
+    </div>
+    <a class="breadcrumb" href="/">На главную</a>
+{% endblock %}

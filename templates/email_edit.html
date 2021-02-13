@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}message create{% endblock %}
+
+{% block content %}
+    <div class="message-create">
+    <h3>Отправка сообщения:</h3>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card message-create-card">
+                <form action="message_create/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            <strong>{{ field.label_tag }}</strong> {{ field }}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <a class="" href="message_list/">Очередь писем</a>
+{% endblock %}

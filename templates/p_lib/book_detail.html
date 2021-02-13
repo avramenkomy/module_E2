@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="book-detail">
+        <img src="{{ MEDIA_URL }}{{ object.photo.url }}" width="300"/>
+        <h1>{{ object.title }}</h1>
+    </div>
+    <a class="breadcrumb" href="/">На главную</a>
+{% endblock %}

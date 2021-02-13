@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Авторы{% endblock %}
+
+{% block content %}
+    {% for author in object_list %}
+        <div class="container authors-list card" style="width: 25rem">
+            <div class="author-info">
+                <a href="{{ author.pk }}">
+                    <div>
+                        <span class="option-text">Фамилия:</span>
+                        <span class="option-value">{{ author.last_name }}</span>
+                    </div>
+                    <div>
+                        <span class="option-text">Имя:</span>
+                        <span class="option-value">{{ author.first_name }}</span>
+                    </div>
+                    {% if author.additional_name %}
+                        <div>
+                            <span class="option-text">Отчество:</span>
+                            <span class="option-value">{{ author.additional_name }}</span>
+                        </div>
+                    {% endif %}
+                    <div>
+                        <span class="option-text">Год рождения:</span>
+                        <span class="option-value">{{ author.birth_year }}</span>
+                    </div>
+                    <div>
+                        <span class="option-text">Страна:</span>
+                        <span class="option-value">{{ author.country }}</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+    <a class="breadcrumb" href="/">На главную</a>
+{% endblock %}

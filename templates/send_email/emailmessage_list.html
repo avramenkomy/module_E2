@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Письма{% endblock %}
+
+{% block content %}
+    {% load timetags %}
+    {% now "U" as current_time %}
+
+    <h1>Очередь писем</h1>
+    <table class="table table-dark table-striped">
+        <tr>
+            <th>№п/п</th>
+            <th>Id письма</th>
+            <th>Тема</th>
+            <th>Текст письма</th>
+            <th>Дата создания</th>
+            <th>Дата отправки</th>
+            <th>Статус отправки</th>
+        </tr>
+
+        {% for message in object_list %}
+        <tr>
+            <td><a href="{{ message.pk }}/">{{ forloop.counter }}</a></td>
+            <td><a href="{{ message.pk }}/">{{ message.pk }}</a></td>
+            <td><a href="{{ message.pk }}/">{{ message.subject }}</a></td>
+            <td><a href="{{ message.pk }}/">{{ message.message }}</a></td>
+            <td>{{ message.create_date|date:"D d M Y" }} {{ message.create_date|time:"H:i" }}</td>
+            <td>{{ message.send_date|date:"D d M Y" }} {{ message.send_date|time:"H:i" }}</td>
+            <td>
+                {% if current_time|sub:message.send_date > 0 %}
+                    Отправлено
+                {% else %}
+                    Не отправлено
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+{% endblock %}

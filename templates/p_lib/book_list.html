@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container books-list">
+    {% if object_list %}
+        {% for book in object_list %}
+        {# -----------------------------------------/book-card/------------------------------------------------------ #}
+            <div class="book-card card" style="width: 15rem">
+                <div class="book-img">
+                    <a href="book/{{ book.pk }}">
+                        <img src="{{ MEDIA_URL }}{{ book.small_photo.url }}" width="125" height="200" />
+                    </a>
+                </div>
+                <div class="book-info">
+                    <a href="book/{{ book.pk }}"> {# books/{{ book.pk }} #}
+                        <div>
+                            <span class="option-text">Название:</span>
+                            <span class="option-value">{{ book.title }}</span>
+                        </div>
+                        <div>
+                            <span class="option-text">Автор:</span>
+                            <span class="option-value">{{ book.author.last_name }} {{ book.author.first_name|first }}.</span>
+                        </div>
+                    </a>
+                    <div>
+                        <span class="option-text">Цена:</span>
+                        <span class="option-value">{{ book.price }} руб.</span>
+                    </div>
+                    <div>
+                        <span class="option-text">Кол-во:</span>
+                        <span class="option-value">{{ book.copy_count }} шт.</span>
+                    </div>
+                </div>
+            </div>
+        {# ---------------------------------------------------------------------------------------------------------- #}
+        {% endfor %}
+    {% else %}
+        <span>Нет подходящих вариантов. Укажите другие условия поиска</span>
+    {% endif %}
+    </div>
+{% endblock %}

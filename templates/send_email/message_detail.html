@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Письмо {{ object.pk }}{% endblock %}
+
+{% block content %}
+    <h1>Детали письма ID:{{ object.pk }}</h1>
+    <div class="card">
+        <span>ID письма: <strong>{{ object.pk }}</strong></span><br>
+        <span>Тема письма: <strong>{{ object.subject }}</strong></span><br>
+        <span>Текст письма: <strong>{{ object.message }}</strong></span><br>
+        <span>Дата отправки: <strong>{{ object.send_date }}</strong></span><br>
+    </div>
+{% endblock %}

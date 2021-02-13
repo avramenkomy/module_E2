@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}message create many{% endblock %}
+
+{% block content %}
+
+    <h3>Отправка нескольких сообщений:</h3>
+    <div class="message-create-many">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ formset.management_form }}
+
+            <div class="row" style="display: flex">
+                {% for form in formset %}
+                    <div class="col-sm-4">
+                        <div class="card message-create-card">
+                            <h5>Письмо №{{ forloop.counter }}</h5>
+                            {{ form }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить все письма</button>
+        </form>
+    </div>
+
+    <a href="/message_list">Очередь писем</a>
+
+{% endblock %}
