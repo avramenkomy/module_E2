@@ -1,0 +1,15 @@
+.footer-panel {
+    margin-top: 10px;
+    background: #343a40;
+    min-height: 65px;
+    color: #dee2e6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+.footer-panel > p {
+    padding-top: 15px;
+}
