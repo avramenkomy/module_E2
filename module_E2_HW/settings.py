@@ -20,7 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3i(md21686%8eirs+j%2pk(@-fqzl2tht08v#jxc3p^u&b3&kk'
+# SECRET_KEY = '3i(md21686%8eirs+j%2pk(@-fqzl2tht08v#jxc3p^u&b3&kk'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,18 +80,18 @@ WSGI_APPLICATION = 'module_E2_HW.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 # for deploy to Heroku
-import dj_database_url  
-DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-}
+# import dj_database_url  
+# DATABASES = {
+#     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+# }
 
 
 # Password validation
@@ -142,6 +143,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 2525
-EMAIL_HOST_USER = '89856492782@mail.ru' # "test_for_skillfactory@mail.ru"
-EMAIL_HOST_PASSWORD = 'Mixail756176!' # "ccj-Bip-cav-23e"
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER') # "test_for_skillfactory@mail.ru"
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD') # "ccj-Bip-cav-23e"
 EMAIL_USE_TLS = True
